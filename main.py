@@ -7,11 +7,11 @@ import pandas as pd
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 # Deep Learning Tools
 from tensorflow.keras.optimizers import SGD, Adam, Adagrad, Adamax, Adadelta, RMSprop
+# from keras.optimizer_v1 import SGD, Adam, Adagrad, Adamax, Adadelta, RMSprop
 # Streamlit Tools
 import streamlit as st
 # UserDefine Class
 from model import DeepLearningModel
-
 
 # 初始化
 config = {
@@ -515,6 +515,8 @@ if button_run:
     optimizer_str = st.session_state['optimizer']['optimizer']
     optimizer_kwargs = st.session_state['optimizer']['kwargs']
     lr = st.session_state['learning_rate']
+
+    # # Solution 1：配合tensorflow.keras.optimizers import SGD, Adam, Adagrad, Adamax, Adadelta, RMSprop使用
     if optimizer_str == 'Sgd':
         opt = SGD(learning_rate=lr)
     elif optimizer_str == 'Momentum':
@@ -548,6 +550,7 @@ if button_run:
     model.compile(loss=st.session_state['loss_function'],
                   optimizer=opt,
                   metrics=['mse'])
+
     with expander_log:
         st.write('Step 2: Compile done')
 
