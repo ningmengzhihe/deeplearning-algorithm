@@ -39,10 +39,14 @@ def load_dataset(dataset_name: str):
     '''
 
     if dataset_name == 'PHM 2016 Challenge':
-        X_train = np.load("/Users/lihan/Workspace/data phm 2016/X_train_r_modeI_chamber4_mm.npy")
-        y_train = np.load("/Users/lihan/Workspace/data phm 2016/y_train_modeI_chamber4_mm.npy")
-        X_test = np.load("/Users/lihan/Workspace/data phm 2016/X_test_r_modeI_chamber4_mm.npy")
-        y_test = np.load("/Users/lihan/Workspace/data phm 2016/y_test_modeI_chamber4_mm.npy")
+        # X_train = np.load("/Users/lihan/Workspace/data phm 2016/X_train_r_modeI_chamber4_mm.npy")
+        # y_train = np.load("/Users/lihan/Workspace/data phm 2016/y_train_modeI_chamber4_mm.npy")
+        # X_test = np.load("/Users/lihan/Workspace/data phm 2016/X_test_r_modeI_chamber4_mm.npy")
+        # y_test = np.load("/Users/lihan/Workspace/data phm 2016/y_test_modeI_chamber4_mm.npy")
+        X_train = np.load("./data/X_train_r_modeI_chamber4_mm.npy")
+        y_train = np.load("./data/y_train_modeI_chamber4_mm.npy")
+        X_test = np.load("./data/X_test_r_modeI_chamber4_mm.npy")
+        y_test = np.load("./data/y_test_modeI_chamber4_mm.npy")
 
     return X_train, y_train, X_test, y_test
 
