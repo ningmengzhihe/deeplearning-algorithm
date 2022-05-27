@@ -149,50 +149,50 @@ class MachineLearingModel:
             if kwargs["max_depth"] == 0:
                 model = DecisionTreeRegressor(max_depth=None)
             else:
-                model = DecisionTreeRegressor(max_depth=kwargs["max_depth"])
+                model = DecisionTreeRegressor(max_depth=int(kwargs["max_depth"]))
 
         elif model_type == 'RandomForest':
             # model = RandomForestRegressor(criterion='squared_error', n_estimators=100, random_state=0)
             if kwargs["max_depth"] == 0:
                 model = RandomForestRegressor(n_estimators=int(kwargs["n_estimators"]), max_depth=None)
             else:
-                model = RandomForestRegressor(n_estimators=int(kwargs["n_estimators"]), max_depth=kwargs["max_depth"])
+                model = RandomForestRegressor(n_estimators=int(kwargs["n_estimators"]), max_depth=int(kwargs["max_depth"]))
 
         elif model_type == 'ExtraTree':
             # model = ExtraTreesRegressor(n_estimators=50)
             if kwargs["max_depth"] == 0:
                 model = ExtraTreesRegressor(n_estimators=int(kwargs["n_estimators"]), max_depth=None)
             else:
-                model = ExtraTreesRegressor(n_estimators=int(kwargs["n_estimators"]), max_depth=kwargs["max_depth"])
+                model = ExtraTreesRegressor(n_estimators=int(kwargs["n_estimators"]), max_depth=int(kwargs["max_depth"]))
 
         elif model_type == 'AdaBoost':
             # model = AdaBoostRegressor(DecisionTreeRegressor(max_depth=5), n_estimators=100, random_state=None)
             if kwargs["max_depth"] == 0:
                 model = AdaBoostRegressor(DecisionTreeRegressor(max_depth=None),
-                                          n_estimators=kwargs["n_estimators"],
+                                          n_estimators=int(kwargs["n_estimators"]),
                                           learning_rate=kwargs["learning_rate"])
             else:
-                model = AdaBoostRegressor(DecisionTreeRegressor(max_depth=kwargs["max_depth"]),
-                                      n_estimators=kwargs["n_estimators"],
+                model = AdaBoostRegressor(DecisionTreeRegressor(max_depth=int(kwargs["max_depth"])),
+                                      n_estimators=int(kwargs["n_estimators"]),
                                       learning_rate=kwargs["learning_rate"])
 
         elif model_type == 'GBDT':
             # model = GradientBoostingRegressor(n_estimators=50, max_depth=5, learning_rate=0.3)
-            model = GradientBoostingRegressor(n_estimators=kwargs["n_estimators"],
-                                              max_depth=kwargs["max_depth"],
+            model = GradientBoostingRegressor(n_estimators=int(kwargs["n_estimators"]),
+                                              max_depth=int(kwargs["max_depth"]),
                                               learning_rate=kwargs["learning_rate"])
 
         elif model_type == 'Xgboost':
             # model = XGBRegressor(n_estimators=50, max_depth=5, learning_rate=0.3)
-            model = XGBRegressor(n_estimators=kwargs["n_estimators"],
-                                 max_depth=kwargs["max_depth"],
+            model = XGBRegressor(n_estimators=int(kwargs["n_estimators"]),
+                                 max_depth=int(kwargs["max_depth"]),
                                  learning_rate=kwargs["learning_rate"])
 
         elif model_type == 'LightGBM':
             # model = LGBMRegressor(n_estimators=100, max_depth=5, num_leaves=10, learning_rate=0.1)
-            model = LGBMRegressor(n_estimators=kwargs["n_estimators"],
-                                  max_depth=kwargs["max_depth"],
-                                  num_leaves=kwargs["num_leaves"],
+            model = LGBMRegressor(n_estimators=int(kwargs["n_estimators"]),
+                                  max_depth=int(kwargs["max_depth"]),
+                                  num_leaves=int(kwargs["num_leaves"]),
                                   learning_rate=kwargs["learning_rate"])
         return model
 

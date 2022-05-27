@@ -315,7 +315,9 @@ def st_dense(units, activation, key_name):
                  index=12, key=f'sel_bias_{key_name}',
                  help='偏置向量的初始化器')
 
+
 st.set_page_config(page_title="Deep Learning Model & Machine Learning Model", page_icon="🎈", layout="wide")
+
 
 st.session_state = config_dp
 
